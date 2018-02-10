@@ -1,0 +1,156 @@
+.left-grid {
+    /*background-image: url(http://readwatchwrite.com/wp-content/uploads/2015/04/rainbow.jpg);*/
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: -webkit-fill-available;  
+    overflow-y: scroll;
+}
+::-webkit-scrollbar { 
+    display: none; 
+}
+#search-bar {
+    padding: 20px 10px;
+    border-radius: 5px;
+}
+#search-bar input, #search-bar .btn.btn-primary  {
+    border-radius: 5px !important;
+}
+#search-bar .input-group-btn {
+    padding-left: 20px;
+    border-radius: 5px;
+}
+.place-name h1,h6 {
+    display: inline;
+}
+.place-name {
+    padding: 20px 0 50px 0px;
+}
+.weather-info h5, h2, h4 {
+    display: inline;
+    cursor: pointer;
+}
+img.icon {
+    max-width: 50px;
+    max-height: 50px;
+}
+.temp-now h2 {
+    font-size: 10em;
+}
+.temp-now h4 {
+    position: absolute;
+    margin-top: 0.8em;
+    font-size: 2em;
+}
+.wind-mill-one, .wind-mill-two {
+    width: 60px;
+    position: relative;
+    height: 60px;
+    background-size: cover;
+    float: left;
+}
+#fan-one {
+    background-image: url(https://s.yimg.com/os/weather/1.0.1/windmill/blade_big_blur@2x.png);
+    width: 60px;
+    height: 60px;
+    background-size: cover;
+}
+#base-one {
+    background-image: url(https://s.yimg.com/os/weather/1.0.1/windmill/bigpole@2x.png);
+    width: 9px;
+    height: 65px;
+    background-size: cover;
+    position: absolute;
+    left: 25px;
+    top: 35px;
+}
+
+#fan-two {
+    background-image: url(https://s.yimg.com/os/weather/1.0.1/windmill/blade_big_blur@2x.png);
+    width: 40px;
+    height: 40px;
+    background-size: cover;
+    position: absolute;
+    top: 25px;
+}
+#base-two {
+    background-image: url(https://s.yimg.com/os/weather/1.0.1/windmill/bigpole@2x.png);
+    width: 7px;
+    height: 50px;
+    background-size: cover;
+    position: absolute;
+    left: 16px;
+    top: 50px;
+}
+.wind-table p {
+    margin-bottom: 4px;
+}
+.wind-container {
+    height: 100px;
+}
+/*Animations*/
+#fan-one, #fan-two {
+    -webkit-animation-name: spin;
+    -webkit-animation-duration: 1.8s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    -moz-animation-name: spin;
+    -moz-animation-duration: 1.8s;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-timing-function: linear;
+    -ms-animation-name: spin;
+    -ms-animation-duration: 1.8s;
+    -ms-animation-iteration-count: infinite;
+    -ms-animation-timing-function: linear;
+    
+    animation-name: spin;
+    animation-duration: 1.8s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+@-ms-keyframes spin {
+    from { -ms-transform: rotate(0deg); }
+    to { -ms-transform: rotate(360deg); }
+}
+@-moz-keyframes spin {
+    from { -moz-transform: rotate(0deg); }
+    to { -moz-transform: rotate(360deg); }
+}
+@-webkit-keyframes spin {
+    from { -webkit-transform: rotate(0deg); }
+    to { -webkit-transform: rotate(360deg); }
+}
+@keyframes spin {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
+}
+.pressure-val {
+    position: relative;
+    left: 25px;
+}
+.forecast-weather div {
+    float: left;
+}
+.forecast-weather img.icon {
+    max-width: 30px;
+    max-height: 30px; 
+}
+.forecast-weather span.small-font {
+    font-size: 13px;
+}
+.forecast-weather {
+    line-height: 20px;
+    background-color: rgba(0,0,0,.34);
+    margin-bottom: 2px;
+    padding-top: 10px;
+    border-radius: 12px; 
+}
+.col-sm-12.forecast-parent, .col-xs-12.forecast-parent   {
+    margin-left: .9375rem;
+}
+p.week-name {
+    margin-bottom: 0px;
+}
