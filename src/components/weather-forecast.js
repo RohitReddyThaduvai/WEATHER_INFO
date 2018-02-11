@@ -101,16 +101,17 @@ class WeatherForecast extends Component {
                 snowvalue = this.state.snowfall[i];
             }
             const fallvalue = (rainvalue >= snowvalue ? rainvalue : snowvalue) * 10;
+            const iconvalue = (this.state.icon[i] !== undefined ? this.state.icon[i] : '01d');
             return (
                 <div key={days.dt} className="row col-sm-12 col-xs-12 forecast-weather">
-                    <div className="col-xs-3 col-sm-3"><p className="week-name">{this.state.day[i]}</p><p>{this.state.current_month[i]} {this.state.date[i]}</p></div>
-                    <div className="col-xs-2 col-sm-2">{this.state.icon[i]}
-                        <img src={require(`./assets/weather/icons/01d.png`)} alt="" className="icon"/>
+                    <div className="col-xs-3 col-sm-4"><p className="week-name">{this.state.day[i]}</p><p>{this.state.current_month[i]} {this.state.date[i]}</p></div>
+                    <div className="col-xs-2 col-sm-2">
+                        <img src={require(`./assets/weather/icons/${iconvalue}.png`)} alt="" className="icon"/>
                     </div>
                     <div className="col-xs-2 col-sm-2">
                         <img src={`https://s.yimg.com/os/weather/1.0.1/precipitation/54x60/rain_ico_${fallvalue}@2x.png`} className="icon" alt="" /><span className="small-font">{fallvalue}%</span>
                     </div>
-                    <div className="col-xs-5 col-sm-5">&uarr; {this.state.temp_max[i]}° &nbsp; &darr; {this.state.temp_min[i]}°</div>
+                    <div className="col-xs-5 col-sm-4">&uarr; {this.state.temp_max[i]}° &nbsp; &darr; {this.state.temp_min[i]}°</div>
                 </div>
             )
         }); 
@@ -118,9 +119,14 @@ class WeatherForecast extends Component {
 
     render() {
         const { weather } = this.props;
+        const iconmain = (this.state.icon[0] !== undefined ? this.state.icon[0] : '01d');
+        const imgsource = require(`./assets/weather/${iconmain}.jpg`);
+        const backgroundStyle = {
+            backgroundImage: 'url('+`${imgsource}`+')'
+        }
 
         return(
-            <div className="row weather-parent">
+            <div className="row weather-parent" style={ backgroundStyle }>
                 <div className="col-sm-12 place-name">
                     <h1>{weather.city.name}</h1>,
                     <h6> {weather.city.country}</h6>
@@ -129,7 +135,7 @@ class WeatherForecast extends Component {
                     <div className="col-sm-4 col-xs-12 col-md-4 col-lg-2">
                         <div className="col-xs-12"><h4>{weather.list[0].weather[0].main}</h4></div>
                         <div className="col-xs-12">
-                            {/*<img src={require('./assets/weather/icons/01d.png')} className="icon" alt="" />*/}
+                            <img src={require(`./assets/weather/icons/${iconmain}.png`)} className="icon" alt="" />
                         </div>
                     </div>
                     <div className="col-sm-8 col-xs-12 col-md-8 col-lg-5 temp-now" onClick={() => this.toggleWeatherDetails(weather)}>

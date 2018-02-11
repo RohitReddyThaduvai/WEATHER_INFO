@@ -17,28 +17,20 @@ module.exports = {
         }
       },
       {
-        test: /\.(png|jpg|gif)$/,
-        use: [
-          {
-            loader: 'url-loader',
-            options: {
-              limit: 8192, fallback: 'responsive-loader'
-            }
-          }
-        ]
+      test: /\.(png|jpg)$/,
+      loader: 'url?limit=25000'
       },
-      {
-        test: /\.(jpg|png|gif|svg|pdf|ico)$/,
-        use: [
-            {
-                loader: 'file-loader',
-                options: {
-                    name: '[path][name].[ext]',
-                    publicPath: 'assets/'
-                },
-            },
-        ]
-      }
+      // {
+      //   test: /\.(jpg|png|gif|svg|pdf|ico)$/,
+      //   use: [
+      //       {
+      //           loader: 'file-loader',
+      //           options: {
+      //               name: '[path][name]-[hash:8].[ext]'
+      //           },
+      //       },
+      //   ]
+      // }
     ]
   },
   resolve: {

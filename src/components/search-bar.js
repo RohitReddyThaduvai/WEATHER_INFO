@@ -58,7 +58,7 @@ class SearchBar extends Component {
         const { weather } = this.props;
 
         return (
-            <div className="row">
+            <div className="row parent-container">
                 <div className="col-lg-12 hidden-md-down">
                     Top footer
                 </div>

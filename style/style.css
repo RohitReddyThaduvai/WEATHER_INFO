@@ -1,9 +1,20 @@
-.left-grid {
-    /*background-image: url(http://readwatchwrite.com/wp-content/uploads/2015/04/rainbow.jpg);*/
+body {
+    color: #fff !important;
+}
+.parent-container {
+    background-color: #000; 
     background-size: cover;
     background-repeat: no-repeat;
     height: -webkit-fill-available;  
     overflow-y: scroll;
+    background-position:center;
+}
+.weather-parent {
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: -webkit-fill-available;  
+    overflow-y: scroll;
+    background-position:center;
 }
 ::-webkit-scrollbar { 
     display: none; 
@@ -30,8 +41,8 @@
     cursor: pointer;
 }
 img.icon {
-    max-width: 50px;
-    max-height: 50px;
+    max-width: 80px;
+    max-height: 80px;
 }
 .temp-now h2 {
     font-size: 10em;
@@ -144,7 +155,7 @@ img.icon {
 .forecast-weather {
     line-height: 20px;
     background-color: rgba(0,0,0,.34);
-    margin-bottom: 2px;
+    margin-bottom: 7px;
     padding-top: 10px;
     border-radius: 12px; 
 }
