@@ -39,6 +39,7 @@ module.exports = {
   devServer: {
     historyApiFallback: true,
     contentBase: './',
+    host: process.env.IP,
     port:  process.env.PORT || 8080
   }
 };
