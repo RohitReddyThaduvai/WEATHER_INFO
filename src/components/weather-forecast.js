@@ -95,10 +95,10 @@ class WeatherForecast extends Component {
             let snowvalue = 0;
             let rainvalue = 0
             if(!isNaN(this.state.rainfall[i])){
-                rainvalue = this.state.rainfall[i];
+                rainvalue = (this.state.rainfall[i] <= 10 ? this.state.rainfall[i] : 10);
             }
             if(!isNaN(this.state.snowfall[i])) {
-                snowvalue = this.state.snowfall[i];
+                snowvalue = (this.state.snowfall[i] <= 10 ? this.state.snowfall[i] : 10);
             }
             const fallvalue = (rainvalue >= snowvalue ? rainvalue : snowvalue) * 10;
             const iconvalue = (this.state.icon[i] !== undefined ? this.state.icon[i] : '01d');
