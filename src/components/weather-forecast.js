@@ -103,7 +103,7 @@ class WeatherForecast extends Component {
             const fallvalue = (rainvalue >= snowvalue ? rainvalue : snowvalue) * 10;
             const iconvalue = (this.state.icon[i] !== undefined ? this.state.icon[i] : '01d');
             return (
-                <div key={days.dt} className="row col-sm-12 col-xs-12 forecast-weather">
+                <div key={days.dt} className="col-sm-12 col-xs-12 forecast-weather">
                     <div className="col-xs-3 col-sm-4"><p className="week-name">{this.state.day[i]}</p><p>{this.state.current_month[i]} {this.state.date[i]}</p></div>
                     <div className="col-xs-2 col-sm-2">
                         <img src={require(`./assets/weather/icons/${iconvalue}.png`)} alt="" className="icon"/>
@@ -131,7 +131,7 @@ class WeatherForecast extends Component {
                     <h1>{weather.city.name}</h1>,
                     <h6> {weather.city.country}</h6>
                 </div>
-                <div className="row col-sm-12 weather-info">
+                <div className="col-sm-12 weather-info">
                     <div className="col-sm-4 col-xs-12 col-md-4 col-lg-2">
                         <div className="col-xs-12"><h4>{weather.list[0].weather[0].main}</h4></div>
                         <div className="col-xs-12">

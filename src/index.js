@@ -16,8 +16,8 @@ ReactDOM.render(
     <BrowserRouter>
       <div>
         <Switch>
-          {/*<Route path="/weather/:place" component={WeatherInfo} />  */}
-          <Route path="/" component={SearchBar} />
+          <Route path="/:place" component={WeatherInfo} />  
+          <Route path="/" component={WeatherInfo} />
         </Switch>
       </div>
     </BrowserRouter>

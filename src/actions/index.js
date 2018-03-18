@@ -8,7 +8,7 @@ const ROOT_URL_WEATHER = 'https://api.openweathermap.org/data/2.5'
 
 export function fetchCurrentWeather(city) {
     const request = axios.get(`${ROOT_URL_WEATHER}/forecast/daily/?appid=${API_KEY_WEATHER}&q=${city}`);
-
+    
     return {
         type: FETCH_CURRENT_WEATHER,
         payload: request

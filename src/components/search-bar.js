@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchCurrentWeather, fetchCurrentWeatherCoord } from '../actions/index';
@@ -25,20 +26,23 @@ class SearchBar extends Component {
         this.setState({term: ''});
     }
 
-    geoLocation() {
-        if(navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition((position) => {
-                const latitude = position.coords.latitude;
-                const longitude = position.coords.longitude;
-                this.props.fetchCurrentWeatherCoord(latitude, longitude);
-            });
-        }else {
-            console.log("cannot get geo location")
-        }
+    componentDidMount() {
+        // this.geoLocation();
     }
 
-    componentDidMount() {
-        this.geoLocation();
+    renderCities() {
+       const { cityList } = this.props; 
+       if(Object.keys(cityList).length !== 0) {
+            return  _.map(cityList, city => {
+                return (
+                    <li className="list-group-item" key={city}>
+                        <Link to={`/${city}`}>
+                            { city }
+                        </Link>
+                    </li>
+                )
+            });
+       }
     }
 
     renderWeather() {
@@ -50,7 +54,7 @@ class SearchBar extends Component {
                </div>
             )
         }
-        return <div>Search for a place to know about the weather and news.</div>
+        return <div>Search for a place to know about the weather.</div>
     }
 
     render(){
@@ -59,11 +63,11 @@ class SearchBar extends Component {
 
         return (
             <div className="row parent-container">
-                <div className="col-lg-12 hidden-md-down">
-                    Top footer
-                </div>
-                <div className="col-lg-2 col-md-3">
-                    Recent search
+                <div className="col-lg-4 col-md-3 hidden-sm-down">
+                   <h1 className="app-name">Weather Forecast</h1>
+                   <div>
+                       {this.renderCities()}
+                   </div>
                 </div>
                 <div className="col-sm-12 col-md-9 col-lg-8 left-grid">
                     <div className="col-md-10 col-sm-12" id="search-bar">
@@ -82,16 +86,13 @@ class SearchBar extends Component {
                         {this.renderWeather()}
                     </div>
                 </div>
-                <div className="col-lg-2 hidden-md-down">
-                    Recent search
-                </div>
             </div>        
         );
     }
 }
 
-function mapStateToProps({ weather }, ownProps) {
-    return { weather: weather }
+function mapStateToProps({ weather, cityList }, ownProps) {
+    return { weather, cityList }
 }
 
 export default connect(mapStateToProps, { fetchCurrentWeather, fetchCurrentWeatherCoord })(SearchBar);

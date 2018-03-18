@@ -1,5 +1,12 @@
 body {
     color: #fff !important;
+    width: 100%;
+    overflow-x: hidden;
+}
+.container-parent {
+    max-width: 1080px;
+    margin-left: auto;
+    margin-right: auto;
 }
 .parent-container {
     background-color: #000; 
@@ -160,8 +167,26 @@ img.icon {
     border-radius: 12px; 
 }
 .col-sm-12.forecast-parent, .col-xs-12.forecast-parent   {
-    margin-left: .9375rem;
+    margin-left: 0;
 }
 p.week-name {
     margin-bottom: 0px;
+}
+@media only screen and (min-width: 1110px) {
+    .left-grid.col-lg-8 {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+}
+div .list-group-item {
+    padding: 0.25rem 0;
+    background-color: #000;
+    border: none;
+}
+li a {
+    color: #fff;
+}
+.app-name {
+    padding-top: 20px;
+    color: #CA0031;
 }
